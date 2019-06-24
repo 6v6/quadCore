@@ -1,0 +1,15 @@
+package com.cns.service;
+
+import java.util.List;
+
+import com.cns.dto.NewsVO;
+
+public interface NewsService {
+
+	public List<NewsVO> selectNews() throws Exception;
+	public List<NewsVO> selectPolitics() throws Exception;
+	public List<NewsVO> selectLiving() throws Exception;
+	public List<NewsVO> selectIT() throws Exception;
+	public List<NewsVO> selectSociety() throws Exception;
+	public List<NewsVO> selectEconomy() throws Exception;
+}

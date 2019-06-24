@@ -1,0 +1,109 @@
+package com.cns.service;
+ 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cns.dao.NewsDAO;
+import com.cns.dto.Criteria;
+import com.cns.dto.NewsVO;
+import com.cns.dto.TagVO;
+
+import lombok.Setter; 
+@Service
+public class NewsServiceImpl implements NewsService {
+ 
+
+    @Setter(onMethod_ = @Autowired)
+	private NewsDAO dao;
+    
+    @Override
+    public List<NewsVO> selectNews() throws Exception {
+ 
+        return dao.selectNews();
+    }
+    
+    
+    //카테고리
+	@Override
+	public List<NewsVO> selectPolitics() throws Exception {
+		return dao.selectPolitics();
+	}
+
+	@Override
+	public List<NewsVO> selectLiving() throws Exception {
+		return dao.selectLiving();
+	}
+
+	@Override
+	public List<NewsVO> selectIT() throws Exception {
+		return dao.selectIT();
+	}
+
+	@Override
+	public List<NewsVO> selectSociety() throws Exception {
+		return dao.selectSociety();
+	}
+
+	@Override
+	public List<NewsVO> selectEconomy() throws Exception {
+		return dao.selectEconomy();
+	}
+	
+	
+	
+	//신문사
+	@Override
+	public List<NewsVO> selectChosun() throws Exception {
+		return dao.selectChosun();
+	}
+
+	@Override
+	public List<NewsVO> selectDonga() throws Exception {
+		return dao.selectDonga();
+	}
+
+	@Override
+	public List<NewsVO> selectHankyoreh() throws Exception {
+		return dao.selectHankyoreh();
+	}
+
+	@Override
+	public List<NewsVO> selectJoongang() throws Exception {
+		return dao.selectJoongang();
+	}
+
+	@Override
+	public List<NewsVO> selectYonhap() throws Exception {
+		return dao.selectYonhap();
+	}
+
+
+	@Override
+	public NewsVO getNews(Long news_id) throws Exception {
+		return dao.getNews(news_id);
+	}
+
+
+	@Override
+	public List<TagVO> getTag(Long news_id) throws Exception {
+		return dao.getTag(news_id);
+	}
+
+
+	@Override
+	public List<NewsVO> getListWithPaging(Criteria cri) throws Exception {
+		return dao.getListWithPaging(cri);
+	}
+
+
+	@Override
+	public int getTotal(Criteria cri) throws Exception {
+		return dao.getTotal(cri);
+	}
+    
+    
+ 
+}
+

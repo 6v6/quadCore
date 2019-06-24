@@ -1,0 +1,40 @@
+package com.cns.dao;
+
+import java.util.List;
+
+import com.cns.dto.Criteria;
+import com.cns.dto.NewsVO;
+import com.cns.dto.TagVO;
+
+public interface NewsDAO {
+
+	
+	public List<NewsVO> selectNews() throws Exception;
+	
+	
+	//category
+	public List<NewsVO> selectPolitics() throws Exception;
+	public List<NewsVO> selectLiving() throws Exception;
+	public List<NewsVO> selectIT() throws Exception;
+	public List<NewsVO> selectSociety() throws Exception;
+	public List<NewsVO> selectEconomy() throws Exception;
+	
+	//½Å¹®»ç
+	public List<NewsVO> selectChosun() throws Exception;
+	public List<NewsVO> selectDonga() throws Exception;
+	public List<NewsVO> selectHankyoreh() throws Exception;
+	public List<NewsVO> selectJoongang() throws Exception;
+	public List<NewsVO> selectYonhap() throws Exception;
+	
+	//news get
+	public NewsVO getNews(Long news_id) throws Exception;
+	
+	//tag get
+	public List<TagVO> getTag(Long news_id) throws Exception;
+	
+	public List<NewsVO> getListWithPaging(Criteria cri) throws Exception;
+	public List<NewsVO> getTotal(Criteria cri) throws Exception;
+	
+	
+	
+}

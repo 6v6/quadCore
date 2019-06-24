@@ -1,0 +1,36 @@
+package com.cns.service;
+
+import java.util.List;
+
+import com.cns.dto.NewsVO;
+
+public interface NewsService {
+
+	public List<NewsVO> selectNews() throws Exception;
+	
+	//기사 get
+	public NewsVO getNews(Long news_id) throws Exception;
+	
+	// 카테고리
+	public List<NewsVO> selectPolitics() throws Exception;
+
+	public List<NewsVO> selectLiving() throws Exception;
+
+	public List<NewsVO> selectIT() throws Exception;
+
+	public List<NewsVO> selectSociety() throws Exception;
+
+	public List<NewsVO> selectEconomy() throws Exception;
+
+	
+	// 신문사
+	public List<NewsVO> selectChosun() throws Exception;
+
+	public List<NewsVO> selectDonga() throws Exception;
+
+	public List<NewsVO> selectHankyoreh() throws Exception;
+
+	public List<NewsVO> selectJoongang() throws Exception;
+
+	public List<NewsVO> selectYonhap() throws Exception;
+}

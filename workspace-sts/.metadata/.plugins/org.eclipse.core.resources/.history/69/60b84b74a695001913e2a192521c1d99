@@ -1,0 +1,5 @@
+package com.cns.interceptor;
+
+public class LoginInterceptor {
+
+}

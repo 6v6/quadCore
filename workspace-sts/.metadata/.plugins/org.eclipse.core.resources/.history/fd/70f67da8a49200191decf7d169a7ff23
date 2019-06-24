@@ -1,0 +1,5 @@
+package com.cns.mapper;
+
+public interface newsMapper {
+
+}

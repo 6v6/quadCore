@@ -1,0 +1,89 @@
+package com.cns.service;
+ 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cns.dto.NewsVO;
+import com.cns.mapper.newsMapper;
+
+import lombok.Setter; 
+@Service
+public class NewsServiceImpl implements NewsService {
+ 
+
+    @Setter(onMethod_ = @Autowired)
+	private newsMapper mapper;
+    
+    @Override
+    public List<NewsVO> selectNews() throws Exception {
+ 
+        return mapper.selectNews();
+    }
+    
+    
+    //카테고리
+	@Override
+	public List<NewsVO> selectPolitics() throws Exception {
+		return mapper.selectPolitics();
+	}
+
+	@Override
+	public List<NewsVO> selectLiving() throws Exception {
+		return mapper.selectLiving();
+	}
+
+	@Override
+	public List<NewsVO> selectIT() throws Exception {
+		return mapper.selectIT();
+	}
+
+	@Override
+	public List<NewsVO> selectSociety() throws Exception {
+		return mapper.selectSociety();
+	}
+
+	@Override
+	public List<NewsVO> selectEconomy() throws Exception {
+		return mapper.selectEconomy();
+	}
+	
+	
+	
+	//신문사
+	@Override
+	public List<NewsVO> selectChosun() throws Exception {
+		return mapper.selectChosun();
+	}
+
+	@Override
+	public List<NewsVO> selectDonga() throws Exception {
+		return mapper.selectDonga();
+	}
+
+	@Override
+	public List<NewsVO> selectHankyoreh() throws Exception {
+		return mapper.selectHankyoreh();
+	}
+
+	@Override
+	public List<NewsVO> selectJoongang() throws Exception {
+		return mapper.selectJoongang();
+	}
+
+	@Override
+	public List<NewsVO> selectYonhap() throws Exception {
+		return mapper.selectYonhap();
+	}
+
+
+	@Override
+	public NewsVO getNews() throws Exception {
+		return mapper.getNews();
+	}
+    
+    
+ 
+}
+

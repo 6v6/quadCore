@@ -1,0 +1,44 @@
+package com.cns.service;
+
+import java.util.List;
+
+import com.cns.dto.Criteria;
+import com.cns.dto.NewsVO;
+import com.cns.dto.TagVO;
+
+public interface NewsService {
+
+	public List<NewsVO> selectNews() throws Exception;
+	public List<NewsVO> getListWithPaging(Criteria cri) throws Exception;
+	
+	public int getTotal(String category) throws Exception;
+	
+	//기사 get
+	public NewsVO getNews(Long news_id) throws Exception;
+	
+	//태그get
+	public List<TagVO> getTag(Long news_id) throws Exception;
+	
+	// 카테고리
+	public List<NewsVO> selectPolitics() throws Exception;
+
+	public List<NewsVO> selectLiving() throws Exception;
+
+	public List<NewsVO> selectIT() throws Exception;
+
+	public List<NewsVO> selectSociety() throws Exception;
+
+	public List<NewsVO> selectEconomy(Criteria cri) throws Exception;
+
+	
+	// 신문사
+	public List<NewsVO> selectChosun() throws Exception;
+
+	public List<NewsVO> selectDonga() throws Exception;
+
+	public List<NewsVO> selectHankyoreh() throws Exception;
+
+	public List<NewsVO> selectJoongang() throws Exception;
+
+	public List<NewsVO> selectYonhap() throws Exception;
+}

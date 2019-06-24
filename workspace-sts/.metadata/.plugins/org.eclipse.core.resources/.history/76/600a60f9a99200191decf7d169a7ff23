@@ -1,0 +1,254 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Bootstrap core CSS -->
+<link href="/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/resources/css/modern-business.css" rel="stylesheet">
+<link href="/resources/css/ij-css.css" rel="stylesheet">
+<title>QuadCore News</title>
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top"
+		style="background-color: #A566FF">
+		<!--  bg-dark -->
+		<div class="container">
+			<a class="navbar-brand" href="news_index.do">QuadCore News</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="news_index.do">Home</a>
+					</li>
+					<li class="nav-item active dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							카테고리 </a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdownBlog">
+							<a class="dropdown-item active" href="politics.do">정치</a> <a
+								class="dropdown-item" href="economy.do">경제</a> <a
+								class="dropdown-item" href="society.do">사회</a> <a
+								class="dropdown-item" href="living.do">생활문화</a> <a
+								class="dropdown-item" href="itSicence.do">IT과학</a>
+						</div></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownPortfolio" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> 타임라인 </a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdownPortfolio">
+							<a class="dropdown-item" href="tag.do">#취업</a> <a
+								class="dropdown-item" href="tag.do">#미국</a> <a
+								class="dropdown-item" href="tag.do">#스카이캐슬</a>
+						</div></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							신문사 </a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdownBlog">
+							<a class="dropdown-item" href="category/chosun.do">조선일보</a> 
+							<a class="dropdown-item" href="category/donga.do">동아일보</a>
+							<a class="dropdown-item" href="category/hankyoreh.do">한겨례</a>
+							<a class="dropdown-item" href="category/joongang.do">중앙일보</a> 
+							<a class="dropdown-item" href="category/yonhap.do">연합뉴스</a> 
+						</div></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Page Heading/Breadcrumbs -->
+		<img style="float: right"
+			src="https://mimgnews.pstatic.net/image/upload/office_logo/003/2018/01/24/logo_003_38_20180124113224.png"
+			alt="신문사로고">
+		<h2 class="mt-4 mb-3">
+			<b>日초계기 위협비행 사진 본 항해사들…"해적이나 하는 행위"</b> <br /> <small>"대조영함
+				레이더 정보 데이터 정확할 것"</small>
+		</h2>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item active">기사입력 2019-01-25 12:56 최종수정
+				2019-01-25 14:16</li>
+		</ol>
+
+		<div class="row">
+
+			<!-- Blog Entries Column -->
+			<div class="col-md-8">
+
+				<!-- Blog Post -->
+				<div class="card mb-4">
+					<img class="card-img-top"
+						src='https://imgnews.pstatic.net/image/003/2019/01/25/NISI20190124_0014840418_web_20190124181543_20190125141607132.jpg?type=w647'>
+					<p style="margin: 5px 10px 20px 20px">
+						<small>【서울=뉴시스】국방부는 24일 일본 해상초계기의 근접 위협비행 모습을 촬영한 영상을
+							공개했다. 전날 오후 2시3분께 이어도 서남방 131㎞ 떨어진 공해상에서 정상적인 작전 활동을 펼치던 해군 구축함
+							대조영함을 향해 일본 P-3 초계기가 540m까지 접근했으며 해수면에서 60~70m 높이로 초저고도 비행을 했다.
+							2019.01.24. (사진=국방부 제공) photo@newsis.com</small>
+					</p>
+					<div class="card-body">
+						<h5 class="card-title">
+							<pre>
+								<b>
+  "대조영함 레이더 정보 데이터 정확할 것"
+  "일반상선끼리 통항해도 1마일 거리유지"
+  "분쟁 지역서 미군도 이렇게는 비행 안해"
+  "조타실서 보면 바로 머리 위나 마찬가지"
+</b>
+							</pre>
+						</h5>
+						<br>
+						<p class="card-text">
+						<pre>
+  【서울=뉴시스】김성진 기자 = "해적들이 하는 행위나 다를 바 없어 보이네요."
+
+  군 당국이 전날인 24일 공개한 일본 P-3 해상초계기의 저공 위협 비행 사진과 레이더 정보를 본
+  항해사 이모(32)씨의 첫마디다. 연중 육지보다 바다에서 시간을 더 많이 보내는 선상 근무자들은
+  하나같이 일본 초계기의 저공 위협 비행에 대해 비판의 목소리를 냈다.
+
+  대형 상선 회사에서 10년차 1등 항해사로 근무하고 있는 이모(32)씨는 초계기 사진을 곰곰이
+  지켜보고는 "대조영함 레이더에 다 잡혔다"며 "데이터가 정확할 것"이라고 밝혔다.
+
+  이씨는 그러면서 "일반 상선끼리 통항할 때도 1마일(1해리·1.852㎞)을 지킨다"며 "군용 비행기가
+  저렇게 넓은 곳에서 비행을 했다면 도발이 맞다"고 지적했다.
+
+  군 당국에 따르면 앞서 지난 23일 해군 구축함 대조영함은 이어도 서남쪽 131㎞ 지점 바다
+  한가운데에서 정상적인 작전활동을 수행 중이었다. 이 해역은 한국·중국·일본 방공식별구역이
+  중첩되지만 우리의 배타적경제수역(EEZ)에 해당한다.
+
+  일본 초계기는 대조영함이 "귀국은 우리 쪽으로 접근하고 있다. 경로를 이탈하라", "더 이상
+  접근하면 자위권적인 조치를 취하겠다"고 20여 차례나 통신을 시도했지만 응답하지 않았다.
+
+  이후 초계기는 오후 2시3분께 고도 60~70m에서 불과 540m만 떨어져 대조영함을 지나갔고, 이 같은
+  모습은 대조영함의 레이더뿐만 아니라 열영상장비와 캠코더 등이 포착한 영상 등에도 고스란히 담겼다
+
+  미 항공모함의 전투기가 쉴 새 없이 날아다니는 중동 호르무즈 해협을 수차례 넘나든 경험이 있는
+  이씨는 "미군도 이렇게까지는 하지 않는다"며 "전투기가 (일본 위협 비행 거리보다) 더 멀리
+  지나다녀도 그 소음과 진동은 굉장하다. 배에서는 불안감을 느낄 수밖에 없다"고 목소리를 높였다.
+
+  대형 상선에서 선장으로 근무하고 있는 신모(44)씨도 마찬가지 입장을 표명했다. 신씨는 "상선과
+  군함의 임무가 다르기 때문에 정서상 받아들이는 차이는 있겠다"면서도 "고도 60~70m는
+  브리지(bridge·조타실)를 기준으로 하면 바로 머리 위나 마찬가지"라고 지적했다.
+
+  신씨는 "(일본 초계기가 최근접한) 0.3마일이면 약 500여m거리인데 비행기의 속도로 봐서 근접
+  상황일 때 훨씬 더 위협이 느껴졌을 것이라는 생각이 든다"며 "더군다나 비행기 엔진음은 배보다
+  훨씬 크기 때문에 체감하는 긴장도는 훨씬 크다고 보인다"고 말했다.
+              </pre>
+						</p>
+					</div>
+					<!--div class="card-footer text-muted">
+
+            </div-->
+				</div>
+
+				<!-- Pagination -->
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link" href="#">&larr;
+							Older</a></li>
+					<li class="page-item disabled"><a class="page-link" href="#">Newer
+							&rarr;</a></li>
+				</ul>
+
+			</div>
+
+			<!-- Sidebar Widgets Column -->
+			<div class="col-md-4">
+
+				<!-- Search Widget >
+          <div class="card mb-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div-->
+
+				<!-- Categories Widget -->
+				<div class="card">
+					<!-- my-4 -->
+					<h5 class="card-header">
+						<b>관련 기사</b>
+					</h5>
+					<div class="card-body">
+						<div class="row">
+							<div class="">
+								<!-- col-lg-6 -->
+								<ul class="mb-0 list-unstyled">
+									<!--list-unstyled -->
+									<li style="margin: 0px 0px 5px 5px;"><a href="#"
+										style="font-size: 13px">日, 초계기 저공비행 반박에…軍 "日 상응 자료 내놔야"</a></li>
+									<li style="margin: 0px 0px 5px 5px;"><a href="#"
+										style="font-size: 13px">日방위상, 초계기 위협비행 "반박 증거 제시할 생각 없다"</a></li>
+									<li style="margin: 0px 0px 5px 5px;"><a href="#"
+										style="font-size: 13px">국방부 “초계기 논란, 이제 일본이 상응하는 자료 내놔야” </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Side Widget -->
+				<div class="card my-4">
+					<h5 class="card-header">태그 Tags</h5>
+					<div class="card-body">
+						<a href="#" class="btn btn-primary">日초계기</a> <a href="#"
+							class="btn btn-primary">日위협비행</a> <a href="#"
+							class="btn btn-primary">대조영함</a> <a href="#"
+							class="btn btn-primary">日저공비행</a>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Your
+				Website 2018</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="/resources/vendor/jquery/jquery.min.js"></script>
+	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+package com.example.dto;
+
+import lombok.Data;
+@Data
+public class NewsVO {
+ 
+	
+    private int news_id;
+    private String news_title;
+    private String news_content;
+    private String category;
+    private int date_of_news;
+    private int news_count;
+    private String summarize;
+
+
+ 
+}
+

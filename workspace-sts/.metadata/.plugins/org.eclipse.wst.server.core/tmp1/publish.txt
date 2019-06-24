@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Tue Apr 30 02:08:47 KST 2019
+org.eclipse.jst.jee.server\:cns=C\:\\ddddd\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\cns
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\\uC815\uC778\uC815\\.m2\\repository\\org\\springframework\\spring-web\\4.3.3.RELEASE\\spring-web-4.3.3.RELEASE.jar=C\:\\ddddd\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\cns\\WEB-INF\\lib\\spring-web-4.3.3.RELEASE.jar

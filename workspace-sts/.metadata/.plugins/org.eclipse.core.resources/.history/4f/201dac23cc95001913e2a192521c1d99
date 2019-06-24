@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.newsMapper">
+	<!-- mybatis-config.xml의 typeAlias에 등록해두지 않았다면 <select id="selectMember" 
+		resultType="com.example.dto.MemberVO" > SELECT ID, PW ,NAME FROM TEST </select> 
+		이렇게 해야 한다. -->
+
+	<select id="selectNews" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where news_id % 50 = 0
+	</select>
+	
+	<select id="getNews" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where news_id = #{news_id}
+	</select>
+	
+	
+	<!-- pagination -->
+	<select id="getTotal" resultType="int">
+		SELECT count(*) FROM news where category = #{category};
+	</select>
+	
+	<select id="getTotalPress" resultType="int">
+		SELECT count(*) FROM news where press = #{press};
+	</select>
+
+	<select id="getListWithPaging" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image FROM news LIMIT 10 OFFSET #{offset};
+	</select>
+	
+	<!-- tag -->
+	<select id="getTag" resultType="tagVO">
+		select tag_id, tag_content, tag_count from tag where tag_id in (SELECT tag_id FROM dbname.newstag where news_id = #{news_id})
+	</select>
+	
+	<select id="getUserTag" resultType="tagVO">
+		select tag_id, tag_content, tag_count from tag where tag_id in (SELECT tag_id FROM dbname.subscribetag where user_id = 1)
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	<!-- category -->	
+	<select id="selectPolitics" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image FROM NEWS where category = "정치" LIMIT 10 OFFSET #{offset};
+	</select>
+	
+	
+	<select id="selectLiving" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image FROM NEWS where category = "생활문화" LIMIT 10 OFFSET #{offset};
+	</select>
+	
+	
+	<select id="selectIT" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where category = "IT과학" LIMIT 10 OFFSET #{offset};
+	</select>
+	
+	<select id="selectSociety" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where category = "사회" LIMIT 10 OFFSET #{offset};
+	</select>
+	
+	<select id="selectEconomy" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where category = "경제" LIMIT 10 OFFSET #{offset};
+	</select>
+	
+	
+	<!-- press -->
+	<select id="selectPress" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS 
+		<where>
+			<if test="press != null">
+				press = #{press}
+			</if>
+			<trim prefixOverrides ="and">
+			<if test="category != null">
+				category = #{category}
+			</if>
+			</trim>
+		</where>
+		LIMIT 10 OFFSET #{offset};
+	</select>
+	
+	<!-- <select id="selectChosun" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where press = "조선일보"
+	</select>
+	
+	<select id="selectDonga" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where press = "동아일보"
+	</select>
+	
+	<select id="selectHankyoreh" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where press = "한겨레"
+	</select>
+	
+	<select id="selectJoongang" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where press = "중앙일보"
+	</select>
+	
+	
+	<select id="selectYonhap" resultType="newsVO">
+		SELECT news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  FROM NEWS where press = "연합뉴스"
+	</select> -->
+	
+	<!-- sign up -->
+	<insert id = "signUp">
+		insert into users (email, password, gender, date_of_birth)
+		values ( #{email}, #{password}, #{gender}, #{date_of_birth})
+	</insert>
+	
+	<!-- login -->
+	<select id="login" resultType="String">
+		select password from users where email = #{email}
+	</select>
+
+
+</mapper>
