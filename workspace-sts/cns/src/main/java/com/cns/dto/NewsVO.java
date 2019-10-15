@@ -3,12 +3,16 @@ package com.cns.dto;
 import java.sql.Date;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
+@Setter
+@Getter
 public class NewsVO {
  
 	
-    private int news_id;
+    private Long news_id;
     private String news_title;
     private String news_content;
     private String press;

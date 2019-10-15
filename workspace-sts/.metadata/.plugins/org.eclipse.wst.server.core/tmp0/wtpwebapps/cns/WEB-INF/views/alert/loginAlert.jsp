@@ -6,7 +6,7 @@
 <body>
 <script>
     alert("로그인이 필요합니다");
-    self.location = "/";
+    self.location = "/login";
 </script>
 </body>
 </html>

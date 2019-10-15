@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
@@ -43,27 +43,27 @@
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Ä«Å×°í¸® </a>
+							ì¹´í…Œê³ ë¦¬ </a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownBlog">
-							<a class="dropdown-item " href="politics.do">Á¤Ä¡</a> <a
-								class="dropdown-item" href="economy.do">°æÁ¦</a> <a
-								class="dropdown-item" href="society.do">»çÈ¸</a> <a
-								class="dropdown-item" href="living.do">»ıÈ°¹®È­</a> <a
-								class="dropdown-item" href="itScience.do">IT°úÇĞ</a>
+							<a class="dropdown-item " href="politics.do">ì •ì¹˜</a> <a
+								class="dropdown-item" href="economy.do">ê²½ì œ</a> <a
+								class="dropdown-item" href="society.do">ì‚¬íšŒ</a> <a
+								class="dropdown-item" href="living.do">ìƒí™œë¬¸í™”</a> <a
+								class="dropdown-item" href="itScience.do">ITê³¼í•™</a>
 						</div></li>
-						<li class="nav-item"><a class="nav-link" href="../tag.do">ÅÂ±×</a></li>
+						<li class="nav-item"><a class="nav-link" href="../tag.do">íƒœê·¸</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							½Å¹®»ç </a>
+							ì‹ ë¬¸ì‚¬ </a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownBlog">
-							<a class="dropdown-item" href="../company/chosun.do">Á¶¼±ÀÏº¸</a> <a
-								class="dropdown-item" href="../company/joongang.do">Áß¾ÓÀÏº¸</a> <a
-								class="dropdown-item" href="../company/donga.do">µ¿¾ÆÀÏº¸</a> <a
-								class="dropdown-item" href="../company/hankyoreh.do">ÇÑ°Ü·Ê</a> <a
-								class="dropdown-item" href="../company/yonhap.do">¿¬ÇÕ´º½º</a>
+							<a class="dropdown-item" href="../company/chosun.do">ì¡°ì„ ì¼ë³´</a> <a
+								class="dropdown-item" href="../company/joongang.do">ì¤‘ì•™ì¼ë³´</a> <a
+								class="dropdown-item" href="../company/donga.do">ë™ì•„ì¼ë³´</a> <a
+								class="dropdown-item" href="../company/hankyoreh.do">í•œê²¨ë¡€</a> <a
+								class="dropdown-item" href="../company/yonhap.do">ì—°í•©ë‰´ìŠ¤</a>
 						</div></li>
 				</ul>
 			</div>
@@ -76,13 +76,14 @@
 		<!-- Page Heading/Breadcrumbs -->
 		<!-- <img style="float: right"
 			src="https://mimgnews.pstatic.net/image/upload/office_logo/003/2018/01/24/logo_003_38_20180124113224.png"
-			alt="½Å¹®»ç·Î°í"> -->
+			alt="ì‹ ë¬¸ì‚¬ë¡œê³ "> -->
 		<h2 class="mt-4 mb-3">
 			<b><c:out value="${news.news_title}"/></b> <br />
 		</h2>
 
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item active">±â»çÀÔ·Â <c:out value="${news.date_of_news}"/></li>
+ 		<li class="p-2 bd-highlight">ê¸°ì‚¬ì…ë ¥ : <c:out value="${news.date_of_news}"/></li>
+  		<li id='scrap' class="ml-auto p-2 bd-highlight"><a href="<c:out value='${news.news_id}'/>">ìŠ¤í¬ë©</a></li>
 		</ol>
 
 		<div class="row">
@@ -95,86 +96,48 @@
 					<img class="card-img-top"
 						src='<c:out value="${news.image}"/>'>
 					<p style="margin: 5px 10px 20px 20px">
-						<small>¡¼¿ä¾à´º½º¡½<c:out value="${news.summarize}"/></small>
+						<small>ã€ìš”ì•½ë‰´ìŠ¤ã€‘<c:out value="${news.summarize}"/></small>
 					</p>
 					<div class="card-body">
-						<h5 class="card-title">
-							<!-- <pre>
-								<b>
-  "´ëÁ¶¿µÇÔ ·¹ÀÌ´õ Á¤º¸ µ¥ÀÌÅÍ Á¤È®ÇÒ °Í"
-  "ÀÏ¹İ»ó¼±³¢¸® ÅëÇ×ÇØµµ 1¸¶ÀÏ °Å¸®À¯Áö"
-  "ºĞÀï Áö¿ª¼­ ¹Ì±ºµµ ÀÌ·¸°Ô´Â ºñÇà ¾ÈÇØ"
-  "Á¶Å¸½Ç¼­ º¸¸é ¹Ù·Î ¸Ó¸® À§³ª ¸¶Âù°¡Áö"
-</b>
-							</pre> -->
-						</h5>
 						<br>
 						<p class="card-text" >
 						<pre style="white-space: pre-wrap;"> <c:out value="${news.news_content}"/> </pre>
 						</p>
 					</div>
-					<!--div class="card-footer text-muted">
-
-            </div-->
 				</div>
-
-				<!-- Pagination -->
-			<!-- 	<ul class="pagination justify-content-center mb-4">
-					<li class="page-item"><a class="page-link" href="#">&larr;
-							Older</a></li>
-					<li class="page-item disabled"><a class="page-link" href="#">Newer
-							&rarr;</a></li>
-				</ul> -->
-
+				
+<!-- 			<ul class="pagination justify-content-left mb-4">
+			<li class="page-item">
+             <a href="#" class="btn btn-primary">ìŠ¤í¬ë©</a>
+            </li>
+         	</ul> -->
+				
 			</div>
 
 			<!-- Sidebar Widgets Column -->
 			<div class="col-md-4">
-
-				<!-- Search Widget >
-          <div class="card mb-4">
-            <h5 class="card-header">Search</h5>
-            <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
-          </div-->
-
-				<!-- Categories Widget -->
-				<!-- <div class="card">
-					my-4
-					<h5 class="card-header">
-						<b>°ü·Ã ±â»ç</b>
-					</h5>
-					<div class="card-body">
-						<div class="row">
-							<div class="">
-								col-lg-6
-								<ul class="mb-0 list-unstyled">
-									list-unstyled
-									<li style="margin: 0px 0px 5px 5px;"><a href="#"
-										style="font-size: 13px">ìí, ÃÊ°è±â Àú°øºñÇà ¹İ¹Ú¿¡¡¦ÏÚ "ìí »óÀÀ ÀÚ·á ³»³ö¾ß"</a></li>
-									<li style="margin: 0px 0px 5px 5px;"><a href="#"
-										style="font-size: 13px">ìí¹æÀ§»ó, ÃÊ°è±â À§ÇùºñÇà "¹İ¹Ú Áõ°Å Á¦½ÃÇÒ »ı°¢ ¾ø´Ù"</a></li>
-									<li style="margin: 0px 0px 5px 5px;"><a href="#"
-										style="font-size: 13px">±¹¹æºÎ ¡°ÃÊ°è±â ³í¶õ, ÀÌÁ¦ ÀÏº»ÀÌ »óÀÀÇÏ´Â ÀÚ·á ³»³ö¾ß¡± </a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div> -->
+		
 
 				<!-- Side Widget -->
 				<div class="card my-4">
-					<h5 class="card-header">ÅÂ±× Tags</h5>
-					<div class="card-body">
+					<h5 class="card-header">íƒœê·¸ Tags</h5>
+					<div class="card-body" id="move" >
 					<c:forEach items="${tags}" var="tag">
-						<a href="#" class="btn btn-primary">${tag.tag_content}</a>
+						<a  href="<c:out value='${tag.tag_id}'/>"  title="<c:out value='${tag.tag_content}'/>" class="btn btn-primary">${tag.tag_content}</a>
+						</c:forEach>
+					</div>
+				</div>
+				
+				<div class="card my-4">
+					<h5 class="card-header">ì—°ê´€íƒœê·¸ Tags</h5>
+					<div id="move" class="card-body">
+					<c:forEach items="${astags}" var="tag">
+						<c:if test="${not empty tag.tag2}">
+							<a href="<c:out value='${tag.tag_id}'/>"  title="<c:out value='${tag.tag2}'/>" class="btn btn-primary">${tag.tag2}</a>
+						</c:if>
+						<c:if test="${not empty tag.tag3}">
+							<a href="<c:out value='${tag.tag_id}'/>" title="<c:out value='${tag.tag3}'/>"  class="btn btn-primary">${tag.tag3}</a>
+						</c:if>
 						</c:forEach>
 					</div>
 				</div>
@@ -186,12 +149,13 @@
 
 	</div>
 	<!-- /.container -->
+	
+	<form id='actionForm' action="/tag" method='get'> </form>
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2018</p>
+			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
 		</div>
 		<!-- /.container -->
 	</footer>
@@ -201,5 +165,32 @@
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						var actionForm = $("#actionForm");
+						$("#move a").on("click",function(e) {
+							e.preventDefault();
+							actionForm.empty();
+							actionForm.append("<input type='hidden' name='tag_id' value='"+ $(this).attr("href")+ "'>");
+							actionForm.append("<input type='hidden' name='tag_content' value='"+ $(this).attr("title")+ "'>");
+							actionForm.attr("action","/tag");
+							actionForm.attr("method","post");
+							actionForm.submit();
+							});
+						
+						$("#scrap a").on("click",function(e) {
+							e.preventDefault();
+							actionForm.append("<input type='hidden' name='news_id' value='"+ $(this).attr("href")+ "'>");
+							actionForm.attr("action","/scrap");
+							actionForm.attr("method","post");
+							actionForm.submit();
+							});
+						
+						
+					});
+</script>
 
 </html>

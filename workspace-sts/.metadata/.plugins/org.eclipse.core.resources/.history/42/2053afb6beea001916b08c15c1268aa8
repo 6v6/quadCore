@@ -1,0 +1,14 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script>
+var message = '${msg}'; 
+var returnUrl = '${url}'; 
+alert(mag); 
+document.location.href = url; 
+</script>
+</body>
+</html>

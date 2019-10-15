@@ -11,6 +11,8 @@ public class TagVO {
     private int tag_id;
     private String tag_content;
     private int tag_count;
+    private String tag2;
+    private String tag3;
    
 
  

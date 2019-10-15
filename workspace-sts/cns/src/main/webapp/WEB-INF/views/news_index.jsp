@@ -18,8 +18,7 @@
 <link href="/resources/css/modern-business.css" rel="stylesheet">
 <link href="/resources/css/ij-css.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+
 
 <!-- Custom styles for this page -->
 <link href="/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -36,8 +35,7 @@
 		style="background-color: #A566FF">
 		<div class="container">
 			<a class="navbar-brand" href="#"
-				onClick="top.location='javascript:location.reload()'">QuadCore
-				News</a>
+				onClick="top.location='javascript:location.reload()'">QuadCore News</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -46,6 +44,31 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							카테고리 </a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdownBlog">
+							<a class="dropdown-item " href="category/politics.do">정치</a> <a
+								class="dropdown-item" href="category/economy.do">경제</a> <a
+								class="dropdown-item" href="category/society.do">사회</a> <a
+								class="dropdown-item" href="category/living.do">생활문화</a> <a
+								class="dropdown-item" href="category/itScience.do">IT과학</a>
+						</div></li>
+					<li class="nav-item"><a class="nav-link" href="../userTag.do">태그</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							신문사 </a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdownBlog">
+							<a class="dropdown-item" href="../company/chosun.do">조선일보</a> <a
+								class="dropdown-item" href="../company/joongang.do">중앙일보</a> <a
+								class="dropdown-item" href="../company/donga.do">동아일보</a> <a
+								class="dropdown-item" href="../company/hankyoreh.do">한겨례</a> <a
+								class="dropdown-item" href="../company/yonhap.do">연합뉴스</a>
+						</div></li>
 					<li class="nav-item"><img style="margin-top: 5px" src="resources/img/user.png"></li>
 					<c:if test="${not empty login}">
 					<li class="nav-item"><a class="nav-link" id="login-state" href="myPage">${login.email}</a></li>
@@ -59,12 +82,12 @@
 	</nav>
 
 	<!-- Navigation kimsk -->
-	<nav class="navbar navbar-expand-lg bg-dark navbar-dark"
+	<!-- <nav class="navbar navbar-expand-lg bg-dark navbar-dark"
 		style="text-align: center">
 		<div class="container" style="width: 350px">
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav" style="text-align: center">
-					<!-- ml-auto -->
+					ml-auto
 					<li class="dropdown" style="display: inline"><a
 						class="dropbtn" style="display: inline-block" href="#"
 						id="navbarDropdownPortfolio" data-toggle="dropdown"
@@ -94,7 +117,7 @@
 				</ul>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
 
 	<header>
 		<div id="carouselExampleIndicators" class="carousel slide"
@@ -105,19 +128,29 @@
 				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 			</ol>
+			
 			<div class="carousel-inner" role="listbox"
 				style="background-color: #000000">
+				<c:forEach items="${newsList}" var="news" begin="1" end="1" step="1">
 				<!-- Slide One - Set the background image for this slide in the line below -->
-				<div class="carousel-item active"
-					style="background-image: url('https://imgnews.pstatic.net/image/003/2019/01/24/NISI20181204_0014703338_web_20181204153114_20190124120204832.jpg?type=w647')">
-					<div class="carousel-caption d-none d-md-block">
-						<a href="news.do" style="color: white"><h3>'365일·24시간'
-								편의점 줄어든다…경조사 휴무·심야영업 단축 쉽게</h3></a>
-						<p>공정위, 편의점·외식업 등 표준가맹계약서 개정</p>
+				<div class="carousel-item active" style="background-image: url(${news.image})">
+					<div id="move" class="carousel-caption d-none d-md-block">
+						<a href="${news.news_id}" style="color: white"><h3>${news.news_title}</h3></a>
+						<p>${news.summarize}</p>
 					</div>
 				</div>
+				</c:forEach>
+				<c:forEach items="${newsList}" var="news" begin="2" end="2" step="1">
+				<!-- Slide One - Set the background image for this slide in the line below -->
+				<div class="carousel-item " style="background-image: url(${news.image})">
+					<div id="move" class="carousel-caption d-none d-md-block">
+						<a href="${news.news_id}" style="color: white"><h3>${news.news_title}</h3></a>
+						<p>${news.summarize}</p>
+					</div>
+				</div>
+				</c:forEach>
 				<!-- Slide Two - Set the background image for this slide in the line below -->
-				<div class="carousel-item"
+				 <!--  <div class="carousel-item"
 					style="background-image: url('https://imgnews.pstatic.net/image/001/2019/01/24/PYH2019012406210005700_P2_20190124125957738.jpg?type=w647')">
 					<div class="carousel-caption d-none d-md-block">
 						<a href="news.do" style="color: white"><h3>'3년 전 불났는데 또…'
@@ -125,7 +158,7 @@
 						<p>이전·재건축 논의만 10년째 되풀이…노후 건물 화재에 더 취약해져</p>
 					</div>
 				</div>
-				<!-- Slide Three - Set the background image for this slide in the line below -->
+				Slide Three - Set the background image for this slide in the line below
 				<div class="carousel-item"
 					style="background-image: url('https://imgnews.pstatic.net/image/001/2019/01/24/PAF20190124226301848_P2_20190124155551943.jpg?type=w647')">
 					<div class="carousel-caption d-none d-md-block">
@@ -133,7 +166,7 @@
 								결국 연기…"셧다운 끝나면 하겠다"</h3></a>
 						<p>하원회의장 놓고 펠로시와 신경전 벌이다 결국 예정일 강행 포기</p>
 					</div>
-				</div>
+				</div>  --> 
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleIndicators"
 				role="button" data-slide="prev"> <span
@@ -151,7 +184,7 @@
 	
 	
 	<!-- Project One -->
-			<c:forEach items="${newsList}" var="news">
+		<c:forEach items="${newsList}" var="news">
 		<div class="row">
 			<div class="col-md-4">
 				<a href="#"> <img class="img-fluid rounded mb-3 mb-md-0" src="${news.image}" alt=""></a>
@@ -168,10 +201,10 @@
 	
 	<div class='pull-right'>
 			<ul class="pagination justify-content-center">
-						<c:if test="${pageMaker.prev}">
+				 		<c:if test="${pageMaker.prev}">
 							<li class="page-item">
 							<a class="page-link"  href="${pageMaker.startPage -1}">Previous</a></li>
-						</c:if>
+						</c:if> 
 
 						<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
 							<li class="page-item">
@@ -188,10 +221,6 @@
 				<!--  end Pagination -->
 	</div>
 	
-		
-
-	
-	<!-- /.container -->
 	
 	<form id='actionForm' action="/" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
@@ -238,6 +267,13 @@
 								//actionForm.find("input[name='offset']").val($(this).attr("href"));
 								actionForm.submit();
 								});
+						
+						$("#move a").on("click",function(e) {
+							e.preventDefault();
+							actionForm.append("<input type='hidden' name='news_id' value='"+ $(this).attr("href")+ "'>");
+							actionForm.attr("action","/news");
+							actionForm.submit();
+							});
 
 						$(".move").on("click",function(e) {
 							e.preventDefault();

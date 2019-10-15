@@ -52,7 +52,7 @@
 								class="dropdown-item" href="living.do">생활문화</a> <a
 								class="dropdown-item" href="itScience.do">IT과학</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="../tag.do">태그</a></li>
+					<li class="nav-item"><a class="nav-link" href="../userTag.do">태그</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,25 +72,14 @@
 
 	<!-- Page Content -->
 	<div class="container">
-
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
 			<b>경제</b>
 			<!--small>Subheading</small-->
 		</h1>
 
-		<!-- <ol class="breadcrumb">
-			<li class="breadcrumb-item">타임라인</li>
-			<a href="tag.html" class="btn btn-primary">취업</a>
-			<a href="tag.html" class="btn btn-primary">북한</a>
-			<a href="tag.html" class="btn btn-primary">트럼프</a>
-		</ol> -->
-
-		<div class="container" style="margin-top: 50px">
-	
-	
 	<!-- Project One -->
-			<c:forEach items="${newsList}" var="news">
+		<c:forEach items="${newsList}" var="news">
 		<div class="row">
 			<div class="col-md-4">
 				<a href="#"> <img class="img-fluid rounded mb-3 mb-md-0" src="${news.image}" alt=""></a>
@@ -103,7 +92,6 @@
 		<hr/>
 		</c:forEach>
 		<!-- /.row -->
-	
 	
 	<div class='pull-right'>
 			<ul class="pagination justify-content-center">
@@ -131,7 +119,7 @@
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 	</form>
 	<!-- /.container -->
-	</div>
+	
 		<!-- Footer -->
 		<footer class="py-5 bg-dark">
 			<div class="container">

@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+    request.setCharacterEncoding("UTF-8");
+%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 
@@ -44,27 +48,27 @@
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Ä«Å×°í¸® </a>
+							ì¹´í…Œê³ ë¦¬ </a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownBlog">
-							<a class="dropdown-item " href="category/politics.do">Á¤Ä¡</a> 
-							<a class="dropdown-item" href="category/economy.do">°æÁ¦</a> 
-							<a class="dropdown-item" href="category/society.do">»çÈ¸</a> 
-							<a class="dropdown-item" href="category/living.do">»ıÈ°¹®È­</a> 
-							<a class="dropdown-item" href="category/itScience.do">IT°úÇĞ</a>
+							<a class="dropdown-item " href="category/politics.do">ì •ì¹˜</a> 
+							<a class="dropdown-item" href="category/economy.do">ê²½ì œ</a> 
+							<a class="dropdown-item" href="category/society.do">ì‚¬íšŒ</a> 
+							<a class="dropdown-item" href="category/living.do">ìƒí™œë¬¸í™”</a> 
+							<a class="dropdown-item" href="category/itScience.do">ITê³¼í•™</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="../tag.do">ÅÂ±×</a></li>
+					<li class="nav-item"><a class="nav-link" href="../tag.do">íƒœê·¸</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							½Å¹®»ç </a>
+							ì‹ ë¬¸ì‚¬ </a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownBlog">
-							<a class="dropdown-item" href="company/chosun.do">Á¶¼±ÀÏº¸</a> <a
-								class="dropdown-item" href="company/joongang.do">Áß¾ÓÀÏº¸</a> <a
-								class="dropdown-item" href="company/donga.do">µ¿¾ÆÀÏº¸</a> <a
-								class="dropdown-item" href="company/hankyoreh.do">ÇÑ°Ü·Ê</a> <a
-								class="dropdown-item" href="company/yonhap.do">¿¬ÇÕ´º½º</a>
+							<a class="dropdown-item" href="company/chosun.do">ì¡°ì„ ì¼ë³´</a> <a
+								class="dropdown-item" href="company/joongang.do">ì¤‘ì•™ì¼ë³´</a> <a
+								class="dropdown-item" href="company/donga.do">ë™ì•„ì¼ë³´</a> <a
+								class="dropdown-item" href="company/hankyoreh.do">í•œê²¨ë¡€</a> <a
+								class="dropdown-item" href="company/yonhap.do">ì—°í•©ë‰´ìŠ¤</a>
 						</div></li>
 				</ul>
 			</div>
@@ -76,21 +80,11 @@
 
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
-			<b>ÅÂ±×</b>
+			<b>${tag}</b>
 			<!--small>Subheading</small-->
 		</h1>
 
-		<ol class="breadcrumb">
-			<!-- <li class="breadcrumb-item">Å¸ÀÓ¶óÀÎ</li>
-        <li class="breadcrumb-item active">#Ãë¾÷</li> -->
-			<!-- <a href="tag.do" class="btn">Ãë¾÷</a>
-			<a href="tag.do" class="btn btn-primary">ºÏÇÑ</a>
-			<a href="tag.do" class="btn btn-primary">Æ®·³ÇÁ</a> -->
-			 <c:forEach items="${tagList}" var="tag">
-			<a href="tag.do" class="btn btn-primary">${tag.tag_content}</a>
-		</c:forEach>
-		</ol>
-		
+	
 	
 
 		<!-- Project One -->
@@ -101,33 +95,26 @@
 			</div>
 			<div class="col-md-7">
 				<a class='move' href="<c:out value='${news.news_id}'/>", style="color: black"><h4>${news.news_title}</h4></a>
-				<p>¡¼¿ä¾à´º½º¡½${news.summarize}</p>
+				<p>ã€ìš”ì•½ë‰´ìŠ¤ã€‘${news.summarize}</p>
 			</div>
 		</div>
 		<hr/>
 		</c:forEach>
 		<!-- /.row -->
 
-		<hr>
+		
 
 		
-		<!-- Pagination -->
-		<ul class="pagination justify-content-center">
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Previous"> <span aria-hidden="true">&laquo;</span> <span
-					class="sr-only">Previous</span>
-			</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span
-					class="sr-only">Next</span>
-			</a></li>
-		</ul>
+	
 
 	</div>
 	<!-- /.container -->
+	
+	<form id='actionForm' action="/" method='get'>
+				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+	</form>
+	
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
@@ -143,5 +130,34 @@
     <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						var actionForm = $("#actionForm");
+					/* 	var result = "<c:out value='${result}'/>";
+						if(result === '')
+							$("#login-state").html("signIn")
+						else
+							$("#login-state").html(result) */
+						
+						$(".page-item a").on("click",function(e) {
+								e.preventDefault();
+								console.log('click');
+								actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+								//actionForm.find("input[name='offset']").val($(this).attr("href"));
+								actionForm.submit();
+								});
+
+						$(".move").on("click",function(e) {
+							e.preventDefault();
+							actionForm.append("<input type='hidden' name='news_id' value='"+ $(this).attr("href")+ "'>");
+							actionForm.attr("action","news");
+							actionForm.submit();
+							});
+						
+					});
+</script>
 
 </html>

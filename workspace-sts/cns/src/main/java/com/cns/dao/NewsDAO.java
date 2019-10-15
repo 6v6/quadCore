@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.cns.dto.Criteria;
 import com.cns.dto.NewsVO;
+import com.cns.dto.ScrapVO;
 import com.cns.dto.TagVO;
+import com.cns.dto.UserTagVO;
 import com.cns.dto.UserVO;
 
 public interface NewsDAO {
@@ -54,6 +56,38 @@ public interface NewsDAO {
 
 
 	public List<NewsVO> getUserTagNews(int user_id);
+
+
+	public List<NewsVO> getCFNews(int user_id);
+
+
+	public void updateTag(Long news_id);
+	
+	//public void setUserTag(Long news_id);
+
+
+	//public void setUserTag(int user_id, Long news_id);
+
+
+	public boolean getUerTag_id(UserTagVO usertagvo) throws Exception;
+
+
+	public void updateUserTag(UserTagVO usertagvo);
+
+
+	public void insertUserTag(UserTagVO usertagvo);
+
+
+	public Object getAssociated(Long news_id);
+
+
+	public List<NewsVO> getTagNews(TagVO tag);
+
+
+	public void insertScrap(ScrapVO scarpvo);
+
+
+	public List<NewsVO> selectScrap(int user_id);
 
 
 

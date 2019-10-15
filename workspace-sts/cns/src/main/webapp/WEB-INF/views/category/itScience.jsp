@@ -52,7 +52,7 @@
 								class="dropdown-item" href="living.do">생활문화</a> <a
 								class="dropdown-item" href="itScience.do">IT과학</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="../tag.do">태그</a></li>
+					<li class="nav-item"><a class="nav-link" href="../userTag.do">태그</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,7 +126,7 @@
 				</div>
 				<!--  end Pagination -->
 	</div>
-	<form id='actionForm' action="/category/economy" method='get'>
+	<form id='actionForm' action="/category/itScience" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 	</form>

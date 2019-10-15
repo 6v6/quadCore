@@ -1,0 +1,70 @@
+package com.cns.dao;
+
+import java.util.List;
+
+import com.cns.dto.Criteria;
+import com.cns.dto.NewsVO;
+import com.cns.dto.TagVO;
+import com.cns.dto.UserVO;
+
+public interface NewsDAO {
+
+	
+	public List<NewsVO> selectNews() throws Exception;
+	
+	
+	//category
+	public List<NewsVO> selectPolitics(Criteria cri) throws Exception;
+	public List<NewsVO> selectLiving(Criteria cri) throws Exception;
+	public List<NewsVO> selectIT(Criteria cri) throws Exception;
+	public List<NewsVO> selectSociety(Criteria cri) throws Exception;
+	public List<NewsVO> selectEconomy(Criteria cri) throws Exception;
+	
+	//½Å¹®»ç
+	public List<NewsVO> selectChosun() throws Exception;
+	public List<NewsVO> selectDonga() throws Exception;
+	public List<NewsVO> selectHankyoreh() throws Exception;
+	public List<NewsVO> selectJoongang() throws Exception;
+	public List<NewsVO> selectYonhap() throws Exception;
+	
+	public List<NewsVO> selectPress(Criteria cri) throws Exception;
+	
+	//news get
+	public NewsVO getNews(Long news_id) throws Exception;
+	
+	//tag get
+	public List<TagVO> getTag(Long news_id) throws Exception;
+	public List<TagVO> getUserTag(int user_id);
+	
+	public List<NewsVO> getListWithPaging(Criteria cri) throws Exception;
+	
+	public int getTotal(String category) throws Exception;
+	public int getTotalPress(String press) throws Exception;
+	
+	public int signUp(UserVO user) throws Exception;
+
+
+	public String login(String email);
+
+
+	public UserVO getUser(UserVO user);
+
+
+	public int getUserId(UserVO user);
+
+
+	public List<NewsVO> getUserTagNews(int user_id);
+
+
+	public List<NewsVO> getCFNews(int user_id);
+
+
+	public Object updateTag(Long news_id);
+
+
+
+
+	
+	
+	
+}

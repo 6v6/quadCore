@@ -52,7 +52,7 @@
 								class="dropdown-item" href="../category/living.do">생활문화</a> <a
 								class="dropdown-item" href="../category/itscience.do">IT과학</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="../tag.do">태그</a></li>
+					<li class="nav-item"><a class="nav-link" href="../userTag.do">태그</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

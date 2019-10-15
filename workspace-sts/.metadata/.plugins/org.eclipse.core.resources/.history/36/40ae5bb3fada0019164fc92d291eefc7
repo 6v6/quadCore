@@ -1,0 +1,180 @@
+
+package com.cns.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.cns.dto.Criteria;
+import com.cns.dto.NewsVO;
+import com.cns.dto.TagVO;
+import com.cns.dto.UserTagVO;
+import com.cns.dto.UserVO;
+
+import lombok.Setter;
+
+@Repository
+public class NewsDAOImpl implements NewsDAO {
+
+	@Setter(onMethod_ = @Autowired)
+	private SqlSession sqlSession;
+
+	private static final String Namespace = "com.example.mapper.newsMapper";
+
+	@Override
+	public List<NewsVO> selectNews() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(Namespace + ".selectNews");
+	}
+
+	@Override
+	public List<NewsVO> selectPolitics(Criteria cri) throws Exception {
+		return sqlSession.selectList(Namespace + ".selectPolitics",cri);
+	}
+
+	@Override
+	public List<NewsVO> selectLiving(Criteria cri) throws Exception {
+		return sqlSession.selectList(Namespace + ".selectLiving",cri);
+	}
+
+	@Override
+	public List<NewsVO> selectIT(Criteria cri) throws Exception {
+		return sqlSession.selectList(Namespace + ".selectIT",cri);
+	}
+
+	@Override
+	public List<NewsVO> selectSociety(Criteria cri) throws Exception {
+		return sqlSession.selectList(Namespace + ".selectSociety",cri);
+	}
+
+	@Override
+	public List<NewsVO> selectEconomy(Criteria cri) throws Exception {
+		return sqlSession.selectList(Namespace + ".selectEconomy",cri);
+	}
+
+	@Override
+	public List<NewsVO> selectChosun() throws Exception {
+		return sqlSession.selectList(Namespace + ".selectChosun");
+	}
+
+	@Override
+	public List<NewsVO> selectDonga() throws Exception {
+		return sqlSession.selectList(Namespace + ".selectDonga");
+	}
+
+	@Override
+	public List<NewsVO> selectHankyoreh() throws Exception {
+		return sqlSession.selectList(Namespace + ".selectHankyoreh");
+	}
+
+	@Override
+	public List<NewsVO> selectJoongang() throws Exception {
+		return sqlSession.selectList(Namespace + ".selectJoongang");
+	}
+
+	@Override
+	public List<NewsVO> selectYonhap() throws Exception {
+		return sqlSession.selectList(Namespace + ".selectYonhap");
+	}
+
+	@Override
+	public NewsVO getNews(NewsVO newsVO) throws Exception {
+		Long news_id = newsVO.getNews_id();
+		return sqlSession.selectOne(Namespace + ".getNews", news_id);
+	}
+
+	@Override
+	public List<TagVO> getTag(Long news_id) throws Exception {
+		return sqlSession.selectList(Namespace + ".getTag", news_id);
+	}
+
+	@Override
+	public List<NewsVO> getListWithPaging(Criteria cri) throws Exception {
+		return sqlSession.selectList(Namespace + ".getListWithPaging", cri);
+	}
+
+	@Override
+	public int getTotal(String category) throws Exception {
+		return sqlSession.selectOne(Namespace + ".getTotal", category);
+	}
+	
+	@Override
+	public int getTotalPress(String press) throws Exception {
+		return sqlSession.selectOne(Namespace + ".getTotalPress", press);
+	}
+
+
+	@Override
+	public List<NewsVO> selectPress(Criteria cri) {
+		return sqlSession.selectList(Namespace + ".selectPress", cri);
+	}
+
+	
+	  @Override 
+	  public int signUp(UserVO user) throws Exception { 
+		  return sqlSession.insert(Namespace + ".signUp", user);
+	  
+	  }
+
+	@Override
+	public String login(String email) {
+		return sqlSession.selectOne(Namespace + ".login", email);
+	}
+
+	@Override
+	public List<TagVO> getUserTag(int user_id) {
+		return sqlSession.selectList(Namespace + ".getUserTag", user_id);
+	}
+
+	@Override
+	public UserVO getUser(UserVO user) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(Namespace + ".getUser", user);
+	}
+
+	@Override
+	public int getUserId(UserVO user) {
+		return sqlSession.selectOne(Namespace + ".getUserId", user);
+	}
+
+	@Override
+	public List<NewsVO> getUserTagNews(int user_id) {
+		return sqlSession.selectList(Namespace + ".getUserTagNews", user_id);
+	}
+
+	@Override
+	public List<NewsVO> getCFNews(int user_id) {
+		return sqlSession.selectList(Namespace + ".getCFNews", user_id);
+	}
+
+	@Override
+	public void updateTag(Long news_id) {
+		sqlSession.update(Namespace + ".updateTagCount", news_id);
+		sqlSession.update(Namespace + ".updateNewsCount", news_id);
+	}
+
+	@Override
+	public boolean getUerTag_id(UserTagVO usertagvo) throws Exception{
+		if(sqlSession.selectOne(Namespace + ".getUerTag_id", usertagvo)!=null)
+			return true;
+		return false;
+	}
+
+	@Override
+	public void updateUserTag(UserTagVO usertagvo) {
+		sqlSession.update(Namespace + ".updateUserTag",usertagvo );
+		
+	}
+
+	@Override
+	public void insertUserTag(UserTagVO usertagvo) {
+		sqlSession.insert(Namespace + ".insertUserTag",usertagvo );
+	}
+
+	
+
+	
+
+}

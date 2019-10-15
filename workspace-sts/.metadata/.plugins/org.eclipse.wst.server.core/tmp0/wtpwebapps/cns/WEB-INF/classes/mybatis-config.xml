@@ -6,7 +6,10 @@
 	<typeAliases>
 		<typeAlias type="com.cns.dto.NewsVO" alias="NewsVO" />
 		<typeAlias type="com.cns.dto.TagVO" alias="TagVO" />
-		<typeAlias type="com.cns.dto.TagVO" alias="UserVO" />
+		<typeAlias type="com.cns.dto.UserVO" alias="UserVO" />
+		<typeAlias type="com.cns.dto.UserTagVO" alias="UserTagVO" />
+		<typeAlias type="com.cns.dto.ScrapVO" alias="ScrapVO" />
+		
 	</typeAliases>
 </configuration>
 

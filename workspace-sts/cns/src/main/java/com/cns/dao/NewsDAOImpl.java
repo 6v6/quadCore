@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import com.cns.dto.Criteria;
 import com.cns.dto.NewsVO;
+import com.cns.dto.ScrapVO;
 import com.cns.dto.TagVO;
+import com.cns.dto.UserTagVO;
 import com.cns.dto.UserVO;
 
 import lombok.Setter;
@@ -141,6 +143,57 @@ public class NewsDAOImpl implements NewsDAO {
 	public List<NewsVO> getUserTagNews(int user_id) {
 		return sqlSession.selectList(Namespace + ".getUserTagNews", user_id);
 	}
+
+	@Override
+	public List<NewsVO> getCFNews(int user_id) {
+		return sqlSession.selectList(Namespace + ".getCFNews", user_id);
+	}
+
+	@Override
+	public void updateTag(Long news_id) {
+		sqlSession.update(Namespace + ".updateTagCount", news_id);
+		sqlSession.update(Namespace + ".updateNewsCount", news_id);
+	}
+
+	@Override
+	public boolean getUerTag_id(UserTagVO usertagvo) throws Exception{
+		if(sqlSession.selectOne(Namespace + ".getUerTag_id", usertagvo)!=null)
+			return true;
+		return false;
+	}
+
+	@Override
+	public void updateUserTag(UserTagVO usertagvo) {
+		sqlSession.update(Namespace + ".updateUserTag",usertagvo );
+		
+	}
+
+	@Override
+	public void insertUserTag(UserTagVO usertagvo) {
+		sqlSession.insert(Namespace + ".insertUserTag",usertagvo );
+	}
+
+	@Override
+	public Object getAssociated(Long news_id) {
+		return sqlSession.selectList(Namespace + ".getAssociated", news_id);
+	}
+
+	@Override
+	public List<NewsVO> getTagNews(TagVO tag) {
+		return sqlSession.selectList(Namespace + ".getTagNews", tag);
+	}
+
+	@Override
+	public void insertScrap(ScrapVO scrapvo) {
+		sqlSession.update(Namespace + ".insertScrap", scrapvo);
+	}
+
+	@Override
+	public List<NewsVO> selectScrap(int user_id) {
+		return sqlSession.selectList(Namespace + ".selectScrap", user_id);
+	}
+
+	
 
 	
 

@@ -3,13 +3,14 @@ package com.cns.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import com.cns.dao.NewsDAO;
 import com.cns.dto.Criteria;
 import com.cns.dto.NewsVO;
+import com.cns.dto.ScrapVO;
 import com.cns.dto.TagVO;
+import com.cns.dto.UserTagVO;
 import com.cns.dto.UserVO;
 
 import lombok.Setter; 
@@ -83,13 +84,14 @@ public class NewsServiceImpl implements NewsService {
 
 
 	@Override
-	public NewsVO getNews(Long news_id) throws Exception {
+	public NewsVO getNews(NewsVO newsVO) throws Exception {
+		Long news_id = newsVO.getNews_id();
 		return dao.getNews(news_id);
 	}
 
 
 	@Override
-	public List<TagVO> getTag(Long news_id) throws Exception {
+	public List<TagVO> getTag(long news_id) throws Exception {
 		return dao.getTag(news_id);
 	}
 
@@ -161,6 +163,74 @@ public class NewsServiceImpl implements NewsService {
 		int user_id = dao.getUserId(user);
 		return dao.getUserTagNews(user_id);
 	}
+
+
+	@Override
+	public List<NewsVO> getCFNews(UserVO user) throws Exception {
+		int user_id = dao.getUserId(user);
+		return dao.getCFNews(user_id);
+	}
+
+
+	@Override
+	public void updateTag(Long news_id) throws Exception {
+		dao.updateTag(news_id);
+		
+	}
+
+
+	@Override
+	public void setUserTag(UserVO userVO, Long news_id) throws Exception {
+		int user_id = dao.getUserId(userVO);
+		List<TagVO> tagvo = dao.getTag(news_id);
+		UserTagVO usertagvo = new UserTagVO();
+		for(TagVO tag : tagvo) {
+			usertagvo.setTag_id(tag.getTag_id());
+			usertagvo.setUser_id(user_id);
+			if(dao.getUerTag_id(usertagvo)) {
+				dao.updateUserTag(usertagvo);
+			}
+			else {
+				dao.insertUserTag(usertagvo);
+			}
+		}
+		
+	}
+
+
+	@Override
+	public Object getAssociated(Long news_id) {
+		return dao.getAssociated(news_id);
+	}
+
+
+	@Override
+	public List<NewsVO> getTagNews(TagVO tag) {
+		return dao.getTagNews(tag);
+	}
+
+
+	@Override
+	public void insertScrap(UserVO userVO, Long news_id) {
+		int user_id = dao.getUserId(userVO);
+		ScrapVO scrapvo = new ScrapVO(user_id,news_id);
+		dao.insertScrap(scrapvo);
+		
+	}
+
+
+	@Override
+	public List<NewsVO> selectScrap(UserVO uservo) {
+		int user_id = dao.getUserId(uservo);
+		return  dao.selectScrap(user_id);
+	}
+
+
+
+
+
+
+
 	 
     
  

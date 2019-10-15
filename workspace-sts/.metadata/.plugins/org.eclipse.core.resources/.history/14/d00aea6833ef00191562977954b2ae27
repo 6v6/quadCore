@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.newsMapper">
+	<!-- mybatis-config.xml의 typeAlias에 등록해두지 않았다면 <select id="selectMember" 
+		resultType="com.example.dto.MemberVO" > SELECT ID, PW ,NAME FROM TEST </select> 
+		이렇게 해야 한다. -->
+
+	<select id="selectNews" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  from news  where news_id % 50 = 0 order by news_id desc
+	</select>
+	
+	<select id="getNews" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  from news  where news_id = #{news_id} order by news_id desc
+	</select>
+	
+	<select id="getTagNews" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  from news  where news_id in (select news_id from newstag where tag_id = #{tag_id}) order by news_id desc
+	</select>
+	
+	
+	
+	<!-- pagination -->
+	<select id="getTotal" resultType="int">
+		select count(*) from news where category = #{category};
+	</select>
+	
+	<select id="getTotalPress" resultType="int">
+		select count(*) from news where press = #{press};
+	</select>
+
+	<select id="getListWithPaging" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image from news order by news_id desc limit 10 offset #{offset};
+	</select>
+	
+	
+	
+	
+	<!-- tag -->
+	<select id="getTag" resultType="tagVO">
+		select tag_id, tag_content, tag_count from tag where tag_id in (select tag_id from newstag where news_id = #{news_id})
+	</select>
+	
+	<select id="getAssociated" resultType="tagVO">
+		select tag_id, tag2, tag3 from associatedtag where tag_id in (select tag_id from newstag where news_id = #{news_id})
+	</select>
+	
+	<select id="getUserTag" resultType="tagVO">
+		select tag_id, tag_content, tag_count from tag where tag_id in (select tag_id from subscribetag where user_id = #{user_id})
+	</select>
+	
+	
+
+	
+	<!-- category -->	
+	<select id="selectPolitics" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image from news where category = 'politics'  order by news_id desc limit 10 offset #{offset};
+	</select>
+	
+	
+	<select id="selectLiving" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image from news  where category = 'living' order by news_id desc limit 10 offset #{offset};
+	</select>
+	
+	
+	<select id="selectIT" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  from news where category = 'IT'  order by news_id desc limit 10 offset #{offset};
+	</select>
+	
+	<select id="selectSociety" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  from news  where category = 'society' order by news_id desc limit 10 offset #{offset};
+	</select>
+	
+	<select id="selectEconomy" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  from news  where category = 'economy' order by news_id desc limit 10 offset #{offset};
+	</select>
+	
+	
+	<!-- press -->
+	<select id="selectPress" resultType="newsVO">
+		select news_id, news_title, news_content, category, date_of_news,news_count,summarize,image  from news 
+		<where>
+			<if test="press != null">
+				press = #{press}
+			</if>
+			<trim prefixOverrides ="and">
+			<if test="category != null">
+				category = #{category}
+			</if>
+			</trim>
+		</where>
+		order by news_id desc
+		limit 10 offset #{offset};
+	</select>
+
+	
+	<!-- sign up -->
+	<insert id = "signUp">
+		insert into users (email, password, gender, date_of_birth)
+		values ( #{email}, #{password}, #{gender}, #{date_of_birth})
+	</insert>
+	
+	<!-- login -->
+	<select id="login" resultType="String">
+		select password from users where email = #{email}
+	</select>
+	
+	<select id="getUser" resultType="userVO">
+		select user_id, email, password, gender, date_of_birth from users where email = #{email}
+	</select>
+	
+	<select id="getUserId" resultType="int">
+		select user_id from users where email = #{email}
+	</select>
+	
+	<select id="getUserTagNews" resultType="newsVO">
+		select * from news where news_id in (select news_id from newstag where tag_id in (select tag_id from subscribetag where user_id = #{email}))
+	</select>
+	
+	<select id="getCFNews" resultType="newsVO">
+		select * from news where news_id in(select news_id from newstag where tag_id in (select cf_id from cftable where user_id = #{user_id}))
+	</select>
+	
+	<update id="updateTagCount">
+		 update tag set tag_count = tag_count+ 1 where tag_id in (select tag_id from newstag where news_id = #{news_id})
+	</update>
+	<update id="updateNewsCount">
+		update news set news_count = news_count + 1 where news_id = #{news_id} 
+	</update>
+	
+	
+	<insert id="insertScrap">
+		insert into scrap (user_id, news_id) values (#{user_id} , #{news_id} ) 
+	</insert>
+	<select id="selectScrap" resultType="newsVO">
+		select * from news where news_id in (select news_id from scrap where user_id = #{user_id})
+	</select>
+	
+	
+	
+	
+	<!-- userTag 반영 -->
+	<select id="getUerTag_id" resultType="int">
+		select userTag_id from usertag where user_id = #{user_id} and tag_id =#{tag_id}
+	</select>
+	
+	<insert id ="insertUserTag">
+		insert into usertag (user_id, tag_id, userTag_count) values ( #{user_id}, #{tag_id}, 1) 
+	</insert>
+	
+	<update id="updateUserTag">
+			update usertag set userTag_count = userTag_count + 1 where user_id = #{user_id} and tag_id =#{tag_id}
+	</update>
+
+
+</mapper>

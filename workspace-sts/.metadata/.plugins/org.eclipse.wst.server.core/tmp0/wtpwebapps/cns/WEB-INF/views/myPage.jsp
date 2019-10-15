@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
@@ -42,20 +42,51 @@
 			<img class="mr-3" src="img/user.png" alt="" width="48" height="48">
 			<div class="lh-100">
 				<h6 class="mb-0 text-white lh-100">MyPage</h6>
-				<a class="mb-0 text-white lh-100" href="/alert/logout"><small>·Î±×¾Æ¿ô</small></a>
+				<a class="mb-0 text-white lh-100" href="/alert/logout"><small>ë¡œê·¸ì•„ì›ƒ</small></a>
 			</div>
 		</div>
 
 		<div class="my-3 p-3 bg-white rounded box-shadow">
-			<h6 class="border-bottom border-gray pb-2 mb-0">³»°¡ ½ºÅ©·¦ÇÑ ´º½º</h6>
+			<h6 class="border-bottom border-gray pb-2 mb-0">ë‚´ê°€ ìŠ¤í¬ëž©í•œ ë‰´ìŠ¤</h6>
+			<c:forEach items="${newsList}" var="news" begin="0" end="3" step="1">
 			<div class="media text-muted pt-3">
 				<img
 					data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1"
 					alt="" class="mr-2 rounded">
 				<p
 					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-					<strong class="d-block text-gray-dark">¿©¾ß, ¼ÕÇý¿ø ³í¶õ ÀÌ¾î Á¶ÇØÁÖ
-						ÀÓ¸í ³õ°í °ø¹æ¡¦Á¤±¹ '²Ç²Ç'</strong> ÇÑ±¹´ç, ¹®´ëÅë·É Á¶ÇØÁÖ ÀÓ¸í °­Çà¿¡ ÀÇ»çÀÏÁ¤ º¸ÀÌÄà ¼±¾ð
+					<strong class="d-block text-gray-dark">${news.news_title}</strong> ${news.date_of_news}
+				</p>
+			</div>
+			</c:forEach>
+			
+			<small class="d-block text-right mt-3"> <a href="#">ë”ë³´ê¸°</a>
+			</small>
+		</div>
+
+		<div class="my-3 p-3 bg-white rounded box-shadow">
+			<h6 class="border-bottom border-gray pb-2 mb-0">ë‚˜ì˜ íƒœê·¸</h6>
+			<div class="media text-muted pt-3">
+				<p
+					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+					<c:forEach items="${tagList}" var="tag" begin="0" end="3" step="1">
+					<span># ${tag.tag_content}</span>
+					</c:forEach>
+				</p>
+			</div>
+			<small class="d-block text-right mt-3"> <a href="#">ìˆ˜ì •í•˜ê¸°</a>
+			</small>
+		</div>
+
+<!-- 		<div class="my-3 p-3 bg-white rounded box-shadow">
+			<h6 class="border-bottom border-gray pb-2 mb-0">íšŒì›ì •ë³´</h6>
+			<div class="media text-muted pt-3">
+				<img
+					data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1"
+					alt="" class="mr-2 rounded">
+				<p
+					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+					<strong class="d-block text-gray-dark">ì´ë¦„</strong> ê¹€**
 				</p>
 			</div>
 			<div class="media text-muted pt-3">
@@ -64,8 +95,7 @@
 					alt="" class="mr-2 rounded">
 				<p
 					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-					<strong class="d-block text-gray-dark">¿ø½Ã Áö±¸, Çà¼º°ú ´ëÃæµ¹·Î »ý¸íÃ¼
-						¿ø¼Ò ¹Þ¾Ò´Ù</strong> °ú¿¬ Áö±¸ÀÇ »ý¸íÃ¼´Â ÃÖÃÊ ¾î¶»°Ô »ý°Ü³¯ ¼ö ÀÖ¾úÀ»±î?
+					<strong class="d-block text-gray-dark">ìƒë…„ì›”ì¼</strong> ****ë…„ **ì›” **ì¼
 				</p>
 			</div>
 			<div class="media text-muted pt-3">
@@ -74,70 +104,14 @@
 					alt="" class="mr-2 rounded">
 				<p
 					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-					<strong class="d-block text-gray-dark">'¶×Ä«·Õ' ¿­Ç³¡¦"±âÇüÀû ¸¶Ä«·Õ"
-						vs "ÇÑ±¹Àû ÀçÇØ¼®"</strong> ¶×Ä«·ÕÀº '¶×¶×ÇÑ ¸¶Ä«·Õ'À» ÁÙÀÎ ½ÅÁ¶¾î. '²¿²ô(coque)'¶ó°í ºÎ¸£´Â ¸¶Ä«·Õ ²®Áú »çÀÌ¿¡
-					ÇÊ¸µÀ» µÎÅÓ°Ô Ã¤¿ö ³ÖÀº ÇüÅÂ¸¦ ¸»ÇÑ´Ù.
+					<strong class="d-block text-gray-dark">ì£¼ì†Œ</strong> ì„œìš¸íŠ¹ë³„ì‹œ ë„ë´‰êµ¬ ì‚¼ì–‘ë¡œ144
+					33ê¸¸
 				</p>
 			</div>
-			<small class="d-block text-right mt-3"> <a href="#">´õº¸±â</a>
+			<small class="d-block text-right mt-3"> <a href="#">ìˆ˜ì •í•˜ê¸°</a>
 			</small>
 		</div>
-
-		<div class="my-3 p-3 bg-white rounded box-shadow">
-			<h6 class="border-bottom border-gray pb-2 mb-0">³ªÀÇ ÅÂ±×</h6>
-			<div class="media text-muted pt-3">
-				<p
-					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-					<strong class="d-block text-gray-dark">ÁÁ¾ÆÇÏ´Â ÅÂ±×</strong> <span>#Ãë¾÷</span>
-					<span>#Ãë¾÷</span> <span>#Ãë¾÷</span> <span>#Ãë¾÷</span>
-				</p>
-			</div>
-			<div class="media text-muted pt-3">
-				<p
-					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-					<strong class="d-block text-gray-dark">ÁÁ¾ÆÇÏ´Â ÅÂ±×</strong> <span>#Ãë¾÷</span>
-					<span>#Ãë¾÷</span> <span>#Ãë¾÷</span> <span>#Ãë¾÷</span>
-				</p>
-			</div>
-
-			<small class="d-block text-right mt-3"> <a href="#">¼öÁ¤ÇÏ±â</a>
-			</small>
-		</div>
-
-		<div class="my-3 p-3 bg-white rounded box-shadow">
-			<h6 class="border-bottom border-gray pb-2 mb-0">È¸¿øÁ¤º¸</h6>
-			<div class="media text-muted pt-3">
-				<img
-					data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1"
-					alt="" class="mr-2 rounded">
-				<p
-					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-					<strong class="d-block text-gray-dark">ÀÌ¸§</strong> ±è**
-				</p>
-			</div>
-			<div class="media text-muted pt-3">
-				<img
-					data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1"
-					alt="" class="mr-2 rounded">
-				<p
-					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-					<strong class="d-block text-gray-dark">»ý³â¿ùÀÏ</strong> ****³â **¿ù **ÀÏ
-				</p>
-			</div>
-			<div class="media text-muted pt-3">
-				<img
-					data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1"
-					alt="" class="mr-2 rounded">
-				<p
-					class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-					<strong class="d-block text-gray-dark">ÁÖ¼Ò</strong> ¼­¿ïÆ¯º°½Ã µµºÀ±¸ »ï¾ç·Î144
-					33±æ
-				</p>
-			</div>
-			<small class="d-block text-right mt-3"> <a href="#">¼öÁ¤ÇÏ±â</a>
-			</small>
-		</div>
-
+ -->
 
 	</div>
 
