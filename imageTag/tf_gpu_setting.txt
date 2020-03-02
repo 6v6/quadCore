@@ -1,0 +1,19 @@
+cuDNN 7.6.4
+설치시 바탕화면에 하고 path 설정 
+cuda v 9.0 
+tf_gpu 1.9 
+
+activate tf_gpu
+python
+import tensorflow as tf
+
+conda info --envs
+conda remove --name tf --all
+pip install --ignore-installed --upgrade tensorflow==1.9
+pip install --user tensorflow-gpu==1.9
+conda install notebook ipykernel
+python -m ipykernel install --user --name tf --display-name "tf_gpu"
+pip install pypiwin32
+
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
