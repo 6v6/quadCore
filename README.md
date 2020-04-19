@@ -33,7 +33,7 @@
 
 3. 서비스 구성도
 
-![service](./img/serviceprogress.png)
+![service](./img/serviceProgress.png)
  
 
 
