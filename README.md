@@ -24,16 +24,16 @@
 
 1. 시스템 전체 구성도
 
-![system](img/system Diagram.png)
+![system](.img/system Diagram.png)
 
 
 2. 태그 추출 과정
 
-![Tag](img/Tag Extraction Process.png)
+![Tag](.img/Tag Extraction Process.png)
 
 3. 서비스 구성도
 
-![service](img/service progress.png)
+![service](.img/service progress.png)
  
 
 
